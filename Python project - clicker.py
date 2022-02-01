@@ -1,4 +1,5 @@
 #Python project - clicker
+import json
 
 def into_dict ():
     global vars
@@ -24,3 +25,6 @@ into_dict()
 
 print(vars)
 print (vars['points'])
+
+with open('clickersave.txt', 'w') as convert_file:
+     convert_file.write(json.dumps(vars))
