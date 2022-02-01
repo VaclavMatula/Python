@@ -1,18 +1,26 @@
 #Python project - clicker
 
-#def intodict ():
-#    for variable in ["points", "build1", "achi1", "up1"]:
-#        vars[variable] = eval(variable)
+def into_dict ():
+    global vars
+    for variable in ["points", "buil01", "achi01", "upgr01"]:
+        vars[variable] = eval(variable)
+
+def new_game():
+
+    global points
+    global buil01
+    global achi01
+    global upgr01
+    
+    points = 0
+    buil01 = 0
+    achi01 = 0
+    upgr01 = 0
 
 vars = {}
 
-points = 50
-build1 = 3
-achi1 = 1
-up1 = 0
-
-for variable in ["points", "build1", "achi1", "up1"]:
-    vars[variable] = eval(variable)
+new_game()
+into_dict()
 
 print(vars)
 print (vars['points'])
