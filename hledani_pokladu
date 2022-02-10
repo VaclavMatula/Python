@@ -1,0 +1,36 @@
+import random
+zobrazovaci_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9",]
+poklad = random.randint(0,9)
+skryty_list = ["0", "0", "0", "0", "0", "0", "0", "0", "0", "0",]
+skryty_list[poklad] = 1
+pocet_pokusu = 3
+vyhra = 0
+
+print (zobrazovaci_list)
+
+while pocet_pokusu > 0 and vyhra == 0:
+    pocet_pokusu = pocet_pokusu -1
+    zadane_cislo = int(input("zadejte cislo od 0 do 9: "))
+
+    if skryty_list [zadane_cislo] == "-1":
+        print ("Slapnul jsi znova na stejne pole ty nemehlo")
+    
+    if zadane_cislo == poklad:
+        zobrazovaci_list [zadane_cislo] = "*"
+        print ("Vyhrál jsi !!!")
+        vyhra = 1
+
+    if zadane_cislo != poklad:
+        zobrazovaci_list [zadane_cislo] = "-"
+
+        if pocet_pokusu != 0:
+            print (f"zbyvajici pocet pokusů: {pocet_pokusu}")
+            
+        if pocet_pokusu == 0:
+            print ("konec hry")
+        skryty_list [zadane_cislo] = "-1"
+    
+    print (zobrazovaci_list)
+
+#print (zobrazovaci_list)
+#print (skryty_list)
