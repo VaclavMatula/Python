@@ -1,3 +1,5 @@
+import ipaddress
+
 adresa = input ("enter IPv4 address: ")
 oktet1 = adresa.partition('.')[0]
 rest = adresa.partition('.')[2]
@@ -40,10 +42,18 @@ m4oct = binmask[24:32]
 #print (m4oct)
 
 mask = m1oct + "." + m2oct + "." + m3oct + "." + m4oct
-print (f"Maska (binárně) : {mask}")
+
+network = ipaddress.ip_interface(adresa)
+network = network.network
+
+broadcast = network.broadcast_address
 
 z = 32-int(maska)
 pocet_adres = 2**z
 pocet_hostu = pocet_adres - 2
+
+print (f"Adresa sítě: {network}")
+print (f"Maska (binárně) : {mask}")
+print (f"Broadcast : {broadcast}")
 print (f"Počet adres: {pocet_adres}")
 print (f"Počet hostů: {pocet_hostu}")
